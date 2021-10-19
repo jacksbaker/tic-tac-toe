@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/wheel.unity
+    guid: 6c0ceb5213bd0624eab90bcf0b1349c5
+  - enabled: 1
+    path: Assets/Scenes/NoughtsAndCrosses.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

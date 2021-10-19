@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class MainScript2: MonoBehaviour
 {
@@ -35,18 +37,17 @@ public class MainScript2: MonoBehaviour
 
     public void Stop()
     {
+        isSpin = false;
 
         Speed--;
-        if (Speed <= 10)
+
+        if (Speed == 1)
         {
             pointer.GetComponent<BoxCollider2D>().enabled = true;
-        }
-
-
-        else if (Speed <= 0)
-        {
-            
-          Speed = 0;
+            Speed = 0;
+            Thread.Sleep(5000);
+            SceneManager.LoadScene("NoughtsAndCrosses");
+           
         }
     }
 
