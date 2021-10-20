@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Pointer1: MonoBehaviour
 {
+
+
+    public static bool isActive = false; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,8 @@ public class Pointer1: MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.name);
+
+        isActive = true; 
     }
 
 

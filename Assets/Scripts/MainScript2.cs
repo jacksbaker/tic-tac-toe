@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading;
+using System.Math;
+
 
 public class MainScript2: MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class MainScript2: MonoBehaviour
     public bool isSpin = true;
 
     public GameObject pointer;
+
+    public float circle = 360;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +33,22 @@ public class MainScript2: MonoBehaviour
 
     void RotateWheel()
     {
-        transform.Rotate(0, 0, Speed * Time.deltaTime);
+        float circleRotate = Speed * Time.deltaTime;
+        transform.Rotate(0, 0, circleRotate);
 
         if (isSpin == false && Speed > 0)
         {
             Stop();
+            circle = circleRotate;
+
+
+            
+
         }
+        
+
+
+        Debug.Log(circle);
     }
 
     public void Stop()
@@ -41,14 +57,40 @@ public class MainScript2: MonoBehaviour
 
         Speed--;
 
-        if (Speed == 1)
+        
+    }
+
+    public static float FindDegree(int x, int y)
+    {
+        float value = (float)((Mathf.Atan2(x, y) / Math.PI) * 180f);
+        if (value < 0) value += 360f;
+
+        return value;
+
+        /*
+
+        if(Speed <= 5)
+        {
+            pointer.GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+
+        if (Speed <= 0)
         {
             pointer.GetComponent<BoxCollider2D>().enabled = true;
             Speed = 0;
-            Thread.Sleep(5000);
-            SceneManager.LoadScene("NoughtsAndCrosses");
-           
-        }
-    }
+        //    Thread.Sleep(5000);
 
-}
+            //if (isActive == true)
+
+            //{
+            //    SceneManager.LoadScene("NoughtsAndCrosses");
+            //}
+
+
+
+        }
+        */
+
+
+    }
